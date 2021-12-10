@@ -298,7 +298,7 @@ df_all2n <- as.data.frame(df_all2n) %>%
 
 df_all3n <- df_all2n %>%
   left_join(df_loc_ratios[, c("location_id", "standardized_ifr_ratio")], by = "location_id") %>%
-  mutate(period_ifr_age_adjusted = period_ifr / standardized_ifr_ratio)
+  mutate(period_ifr_age_adjusted = period_ifr * standardized_ifr_ratio)
 df_ifr_std<-df_all3n
 
 # period 4
@@ -325,7 +325,7 @@ df_all2n2 <- as.data.frame(df_all2n2) %>%
 
 df_all3n2 <- df_all2n2 %>%
   left_join(df_loc_ratios[, c("location_id", "standardized_ifr_ratio")], by = "location_id") %>%
-  mutate(period_ifr_age_adjusted = period_ifr / standardized_ifr_ratio)
+  mutate(period_ifr_age_adjusted = period_ifr * standardized_ifr_ratio)
 
 df_ifr_std<-rbind(df_ifr_std, df_all3n2)
 
